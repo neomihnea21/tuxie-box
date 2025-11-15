@@ -5,6 +5,8 @@ mod echo;
 mod cat;
 mod mkdir;
 mod pwd;
+mod grep;
+mod chmod;
 fn main() {
     // Retrieve the list of arguments
     let arguments: Vec<String> = std::env::args().collect();
@@ -27,6 +29,8 @@ fn main() {
         "cat" => cat::cat(&arguments[2..]),
         "pwd" => pwd::pwd(),
         "mkdir" => mkdir::mkdir(&arguments[2..]),
+        "grep" => grep::grep(&arguments[2..]),
+        "chmod" => chmod::chmod(&arguments[2..]),
         _ => panic!("Unrecognized command"),
     }
 }
