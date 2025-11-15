@@ -1,6 +1,10 @@
+
+
 // Declare the echo module used to implement echo command
 mod echo;
-
+mod cat;
+mod mkdir;
+mod pwd;
 fn main() {
     // Retrieve the list of arguments
     let arguments: Vec<String> = std::env::args().collect();
@@ -20,6 +24,9 @@ fn main() {
         //
         // Also, the echo argument takes some arguments. Pass them to the command.
         "echo" => echo::echo(&arguments[2..]),
+        "cat" => cat::cat(&arguments[2..]),
+        "pwd" => pwd::pwd(),
+        "mkdir" => mkdir::mkdir(&arguments[2..]),
         _ => panic!("Unrecognized command"),
     }
 }
